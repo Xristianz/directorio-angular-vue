@@ -1,68 +1,13 @@
 
-<main class="contenedor">
-
-  <h1>Directorio de Usuarios</h1>
-  <p>Aplicación realizada con Angular</p>
-
-  <section class="controles">
-
-    <div>
-      <label for="busqueda">Buscar usuario:</label>
-
-      <input
-        id="busqueda"
-        type="text"
-        placeholder="Escribe un nombre..."
-        [value]="busqueda()"
-        (input)="busqueda.set($any($event.target).value)"
-      />
-    </div>
-
-    <div class="favoritos">
-      <strong>Favoritos: {{ favoritos().length }}</strong>
-
-      <button
-        type="button"
-        (click)="limpiarFavoritos()">
-        Limpiar favoritos
-      </button>
-    </div>
-
-  </section>
-
-  @if (cargando()) {
-    <p role="status">Cargando...</p>
-  }
-  @else if (error()) {
-    <div class="error" role="alert">
-      <p>{{ error() }}</p>
-      <button type="button" (click)="cargarUsuarios()">
-        Reintentar
-      </button>
-    </div>
-  }
-  @else {
-
-    <p>
-      Mostrando {{ usuariosFiltrados().length }}
-      de {{ usuarios().length }} usuarios
-    </p>
-
-    <section class="lista">
-
-      @for (usuario of usuariosFiltrados(); track usuario.id) {
-
-        <app-usuario-tarjeta
-          [usuario]="usuario"
-          [favorito]="esFavorito(usuario.id)"
-          (alternarFavorito)="cambiarFavorito($event)">
-        </app-usuario-tarjeta>
-
-      } @empty {
-        <p>No se encontraron usuarios.</p>
-      }
-
-    </section>
-  }
-
-</main>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Directorio de Usuarios - Angular</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
