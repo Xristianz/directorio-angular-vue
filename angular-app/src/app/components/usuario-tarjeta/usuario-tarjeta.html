@@ -1,1 +1,20 @@
-<p>usuario-tarjeta works!</p>
+
+<div class="tarjeta">
+  <h3>{{ usuario().name }}</h3>
+
+  <p>
+    <strong>Correo:</strong> {{ usuario().email }}
+  </p>
+
+  <p>
+    <strong>Ciudad:</strong> {{ usuario().address.city }}
+  </p>
+
+  <button
+    type="button"
+    [class.seleccionado]="favorito()"
+    (click)="marcarFavorito()">
+    {{ favorito() ? '★ Quitar favorito' : '☆ Favorito' }}
+  </button>
+</div>
+
